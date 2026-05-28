@@ -1,6 +1,0 @@
-{
-  "artifactType":  "ARTIFACT_TYPE_IMPLEMENTATION_PLAN",
-  "summary":  "Updated implementation plan to use Vue.js for the frontend and Node.js/Express.js for the backend.",
-  "updatedAt":  "2026-05-26T13:24:35.588634400Z",
-  "requestFeedback":  true
-}
