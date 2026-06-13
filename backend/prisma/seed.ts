@@ -58,15 +58,16 @@ async function main() {
 
   // --- Expenditures ---
   const expenditures = [
-    { date: new Date('2025-11-15'), referenceNo: 'EXP-2025-112', description: 'Road Maintenance - Purok 3', amount: 120000, fundAllocationId: generalFund.id },
-    { date: new Date('2025-11-10'), referenceNo: 'EXP-2025-111', description: 'Barangay Hall Repairs', amount: 85000, fundAllocationId: generalFund.id },
-    { date: new Date('2025-11-05'), referenceNo: 'EXP-2025-110', description: 'Relief Goods Distribution', amount: 65000, fundAllocationId: disasterFund.id },
-    { date: new Date('2025-10-28'), referenceNo: 'EXP-2025-109', description: 'School Supplies Donation', amount: 45000, fundAllocationId: specialEdFund.id },
-    { date: new Date('2025-01-10'), referenceNo: 'EXP-2025-001', description: 'General Fund Prior Expenses', amount: 4995000, fundAllocationId: generalFund.id },
-    { date: new Date('2025-01-15'), referenceNo: 'EXP-2025-002', description: 'Special Education Prior Expenses', amount: 1155000, fundAllocationId: specialEdFund.id },
-    { date: new Date('2025-02-01'), referenceNo: 'EXP-2025-003', description: 'Disaster Relief Prior Expenses', amount: 885000, fundAllocationId: disasterFund.id },
-    { date: new Date('2025-03-01'), referenceNo: 'EXP-2025-004', description: 'Infrastructure Completion', amount: 500000, fundAllocationId: infraFund.id },
+    { date: new Date('2026-01-15'), referenceNo: 'EXP-2026-001', description: 'January General Expenses', amount: 350000, fundAllocationId: generalFund.id },
+    { date: new Date('2026-02-10'), referenceNo: 'EXP-2026-002', description: 'February Maintenance & Operations', amount: 380000, fundAllocationId: generalFund.id },
+    { date: new Date('2026-03-05'), referenceNo: 'EXP-2026-003', description: 'March Education Supplies', amount: 410000, fundAllocationId: specialEdFund.id },
+    { date: new Date('2026-04-12'), referenceNo: 'EXP-2026-004', description: 'April Calamity Prep', amount: 390000, fundAllocationId: disasterFund.id },
+    { date: new Date('2026-05-20'), referenceNo: 'EXP-2026-005', description: 'May Road Repair', amount: 450000, fundAllocationId: infraFund.id },
+    { date: new Date('2026-06-05'), referenceNo: 'EXP-2026-006', description: 'June Mid-Year Operations', amount: 420000, fundAllocationId: generalFund.id },
   ]
+
+  // Clear old expenditures to reset the trend line
+  await prisma.expenditure.deleteMany({})
 
   for (const exp of expenditures) {
     await prisma.expenditure.upsert({

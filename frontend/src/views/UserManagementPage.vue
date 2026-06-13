@@ -2,7 +2,7 @@
 import { ref, onMounted, computed } from 'vue'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:3001/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
 const users = ref<any[]>([])
 const loading = ref(true)
 const filter = ref('all')

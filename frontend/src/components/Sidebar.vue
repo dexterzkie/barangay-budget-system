@@ -12,7 +12,8 @@ const pendingCount = ref(0)
 const fetchPending = async () => {
   if (state.user?.role !== 'Barangay Captain') return
   try {
-    const res = await axios.get('http://localhost:3001/api/dashboard')
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
+    const res = await axios.get(`${API_URL}/dashboard`)
     pendingCount.value = res.data.pendingRegistrations || 0
   } catch {}
 }

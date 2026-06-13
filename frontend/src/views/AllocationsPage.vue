@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import axios from 'axios'
 import AllocationsView from '../components/AllocationsView.vue'
 
-const API_URL = 'http://localhost:3001/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
 const allocations = ref([])
 const loading = ref(true)
 

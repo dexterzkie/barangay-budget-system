@@ -44,13 +44,22 @@ const formatCurrency = (amount) => {
       </div>
     </div>
     
-    <div class="stat-card">
-      <div class="stat-icon bg-accent-light">
-        <i class="fas fa-percentage"></i>
-      </div>
-      <div class="stat-content">
+    <div class="stat-card utilization-card">
+      <div class="stat-content" style="width: 100%; text-align: center;">
         <h3>UTILIZATION RATE</h3>
-        <div class="value">{{ stats.utilizationRate }}%</div>
+        <div class="graph-container">
+          <svg viewBox="0 0 36 36" class="circular-chart">
+            <path class="circle-bg"
+              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+            />
+            <path class="circle"
+              :stroke-dasharray="`${stats.utilizationRate}, 100`"
+              :stroke="stats.utilizationRate > 90 ? '#ef4444' : stats.utilizationRate > 70 ? '#f59e0b' : '#10b981'"
+              d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+            />
+            <text x="18" y="21" class="percentage">{{ stats.utilizationRate }}%</text>
+          </svg>
+        </div>
       </div>
     </div>
   </div>
@@ -115,5 +124,50 @@ const formatCurrency = (amount) => {
 
 .text-danger {
   color: var(--danger) !important;
+}
+
+/* Circular Graph Styles */
+.utilization-card {
+  padding: 15px 24px;
+}
+
+.graph-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.circular-chart {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: rgba(0,0,0,0.06);
+  stroke-width: 3.5;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1s ease-out, stroke 0.3s ease;
+  animation: fillAnimation 1.5s ease-out forwards;
+}
+
+@keyframes fillAnimation {
+  0% { stroke-dasharray: 0, 100; }
+}
+
+.percentage {
+  fill: var(--text);
+  font-family: inherit;
+  font-size: 8px;
+  font-weight: 800;
+  text-anchor: middle;
 }
 </style>

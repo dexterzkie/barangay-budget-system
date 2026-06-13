@@ -11,6 +11,7 @@ const settings = ref({
 })
 
 const saved = ref(false)
+const apiHost = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
 
 const saveSettings = () => {
   // In a real app this would call a PATCH /api/settings endpoint
@@ -79,7 +80,7 @@ const saveSettings = () => {
         </div>
         <div class="info-row">
           <span>API URL</span>
-          <strong>http://localhost:3001/api</strong>
+          <strong>{{ apiHost }}</strong>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ const props = defineProps({
 const emit = defineEmits(['refresh'])
 const { state } = useAuth()
 const isTreasurer = () => state.user?.role === 'Barangay Treasurer'
-const API_URL = 'http://localhost:3001/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
 
 const showModal = ref(false)
 const showReceiptModal = ref(false)

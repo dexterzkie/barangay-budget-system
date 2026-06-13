@@ -14,7 +14,7 @@ const { state } = useAuth()
 const isAdmin = () => state.user?.role !== 'Resident'
 
 const emit = defineEmits(['refresh'])
-const API_URL = 'http://localhost:3001/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api'
 
 const showModal = ref(false)
 const showEditModal = ref(false)

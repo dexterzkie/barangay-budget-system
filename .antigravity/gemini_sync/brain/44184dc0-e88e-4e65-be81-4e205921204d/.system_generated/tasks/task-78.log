@@ -1,0 +1,26 @@
+node:internal/modules/cjs/loader:1421
+  const err = new Error(message);
+              ^
+
+Error: Cannot find module '.prisma/client/default'
+Require stack:
+- C:\Users\Ann\.gemini\antigravity\scratch\barangay-budget-system\backend\node_modules\@prisma\client\default.js
+- C:\Users\Ann\.gemini\antigravity\scratch\barangay-budget-system\backend\prisma\seed.ts
+    at node:internal/modules/cjs/loader:1421:15
+    at nextResolveSimple (C:\Users\Ann\.gemini\antigravity\scratch\barangay-budget-system\backend\node_modules\tsx\dist\register-BOkp8V6j.cjs:10:1017)
+    at C:\Users\Ann\.gemini\antigravity\scratch\barangay-budget-system\backend\node_modules\tsx\dist\register-BOkp8V6j.cjs:9:4388
+    at C:\Users\Ann\.gemini\antigravity\scratch\barangay-budget-system\backend\node_modules\tsx\dist\register-BOkp8V6j.cjs:9:3818
+    at resolveTsPaths (C:\Users\Ann\.gemini\antigravity\scratch\barangay-budget-system\backend\node_modules\tsx\dist\register-BOkp8V6j.cjs:10:770)
+    at C:\Users\Ann\.gemini\antigravity\scratch\barangay-budget-system\backend\node_modules\tsx\dist\register-BOkp8V6j.cjs:10:1155
+    at T._resolveFilename (file:///C:/Users/Ann/.gemini/antigravity/scratch/barangay-budget-system/backend/node_modules/tsx/dist/register-D_B8UL5H.mjs:2:14812)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+    at defaultResolve (node:internal/modules/cjs/loader:1094:31)
+    at nextStep (node:internal/modules/customization_hooks:189:26) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\Ann\\.gemini\\antigravity\\scratch\\barangay-budget-system\\backend\\node_modules\\@prisma\\client\\default.js',
+    'C:\\Users\\Ann\\.gemini\\antigravity\\scratch\\barangay-budget-system\\backend\\prisma\\seed.ts'
+  ]
+}
+
+Node.js v24.12.0
